@@ -1,0 +1,54 @@
+## Build output
+bin/
+obj/
+out/
+artifacts/
+[Bb]uild/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+
+## Visual Studio and IDE files
+.vs/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.rsuser
+*.swp
+*.swo
+
+## NuGet
+*.nupkg
+*.snupkg
+packages/
+!packages/build/
+project.lock.json
+project.fragment.lock.json
+
+## Test results and coverage
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+coverage/
+
+## Logs and local databases
+*.log
+*.db
+*.db-shm
+*.db-wal
+
+## ASP.NET local configuration
+appsettings.Development.json
+appsettings.Local.json
+
+## Generated client assets
+wwwroot/lib/
+
+## Operating system files
+.DS_Store
+Thumbs.db
