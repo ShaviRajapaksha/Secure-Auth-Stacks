@@ -16,9 +16,20 @@ public class AuthController : ControllerBase
     private readonly AppDbContext _db;
     private readonly IConfiguration _config;
 
+    public AuthController(AppDbContext db, IConfiguration config)
+    {
+        _db = db;
+        _config = config;
+    }
+
     [HttpPost("register")]
     public async Task<IActionResult> Register([FromBody] AuthRequest request)
     {
+        if (string.IsNullOrWhiteSpace(request.Email) || string.IsNullOrWhiteSpace(request.Password))
+        {
+            return BadRequest(new { message = "Email and password are required." });
+        }
+
         if (await _db.Users.AnyAsync(u => u.Email == request.Email))
             return BadRequest(new { message = "Email already registered" });
 
@@ -33,7 +44,6 @@ public class AuthController : ControllerBase
 
         return Ok(new { message = "Registration successful" });
     }
-
     [HttpPost("login")]
     public async Task<IActionResult> Login([FromBody] AuthRequest request)
     {
